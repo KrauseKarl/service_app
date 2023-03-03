@@ -132,6 +132,14 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CELERY_BROKER_URL = 'redis://redis:6379/0'
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://redis:6379/1",
+    }
+}
+
 LOGGING = {
     'version': 1,
     'handlers': {
@@ -144,3 +152,5 @@ LOGGING = {
         }
     }
 }
+
+PRICE_CACHE_NAME = 'price_cache'
